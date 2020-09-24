@@ -1,128 +1,68 @@
-# Net Purpose frontend tech test 🎨
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## What is the task?
+## Available Scripts
 
-Your task is to create a frontend "admin dashboard" for some fictional portfolio holdings. Portfolio details will be delivered via the API (see below). We don't expect you to spend more than a couple hours on this, and there is no need to worry about updating the backend folder.
+In the project directory, you can run:
 
-We want to see three things: integration with APIs, display of data, and user interaction.
+### `yarn start`
 
-### 1. Integration with API
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-We'd like to see you fetch portfolio holdings data from the included API (see below for details), and ideally combine information from an external source like [AlphaVantage](https://www.alphavantage.co/).
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-### 2. Display data
+### `yarn test`
 
-Show the data retrieved from the API(s) on the page. Bonus points for creative visualisations and ideas (we like charts 📊)
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-Mandatory feature set:
+### `yarn build`
 
-- List of holdings
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-Some ideas to extend if you have time:
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
 
-- Aggregate statistics on holdings, e.g. total portfolio value
-- Holdings performance over time - [link](https://www.alphavantage.co/documentation/#time-series-data)
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### 3. User interaction
+### `yarn eject`
 
-An example of the user interacting with the page, e.g. using buttons, sliders, dropdowns etc.
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-Mandatory feature set:
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-- Add and remove a holding (ideally on a separate page)
-- Sort the displayed list of holdings (e.g. by name and value)
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-Some ideas to extend this part (feel free to come up with something more interesting):
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-- Login flow
-- Update a holding
-- Search and filter the data that's displayed
+## Learn More
 
-### Summary
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-So, you should end up with an app that:
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-- Grabs holdings data from the local API
-- Displays that on the page, with options to sort by name or value
-- On a separate page, allows you to add and remove a holding
+### Code Splitting
 
-Plus whatever extensions you have time for!
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-## Judging criteria
+### Analyzing the Bundle Size
 
-We're going to look mostly at the structure and quality of your code, rather than how beautiful your solution looks. That being said, some appreciation of UX and interaction design principles are important.
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-We're also interested to hear your thoughts on, or see your implementation for, things like:
+### Making a Progressive Web App
 
-- State management
-- Componentisation and project organisation
-- Styling solutions
-- Testing strategy
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-## The boilerplate
+### Advanced Configuration
 
-### Frontend
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-In the `frontend` directory, is an almost unmodified create-react-app project to help you get started quickly. If you prefer, please feel free to use your own boilerplate (and linting rules 😉).
+### Deployment
 
-If you like TypeScript, [go for it](https://create-react-app.dev/docs/adding-typescript/). We also accept solutions using Vue.
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-There is an example request to the API in `App.js`.
+### `yarn build` fails to minify
 
-### API
-
-Check out the swagger at [http://localhost/docs](http://localhost/docs). (See "How to get it running" below first)
-
-The API consists of three main endpoints: `/login`, `/users`, and `/holdings`:
-
-- `/login` - POST username and password, get back a JWT to use as Bearer auth with the other endpoints
-- `/users` - CRUD user management
-- `/holdings` - CRUD holdings - e.g. `GET /holdings` will return a list of your holdings
-
-You can login using these credentials to start with, it's up to you if you want to make your app multitenant:
-
-- user: admin@frontend.com
-- password: changethis
-
-> ⚠️ The holdings for this user will reset whenever the backend is restarted
-
-### Database
-
-Open a psql session with `docker-compose exec db bash`, then `psql -d app -U postgres`. Alternatively, you can inspect using pgAdmin - [http://localhost:5050](http://localhost:5050/)
-
-Mainly we are interested in the `holding` table:
-
-```
- id  |                name                | ticker | value | owner_id
------+------------------------------------+--------+-------+----------
- 694 | APPLE INC                          | AAPL   | 82345 |        1
- 695 | MICROSOFT CORP                     | MSFT   | 12727 |        1
-```
-
-- Name: name of the company
-- Ticker: short code identifying the company, you can use this e.g. to look up data through AlphaVantage
-- Value: the 'amount' of stock held in that company, you can imagine this is in e.g. USD
-- Owner ID: foreign key to users table
-
-## How to get it running
-
-### Prerequisites
-
-- [Docker](https://www.docker.com/)
-- [Docker Compose](https://docs.docker.com/compose/install/)
-- [Node](https://nodejs.org/en/)
-- [Yarn](https://yarnpkg.com/getting-started/install)
-
-### Start the app
-
-```
-# in the backend directory
-docker-compose up -d
-
-# in the frontend directory
-yarn && yarn start
-```
-
-Now go to [http://localhost:3000](http://localhost:3000) and you should see the app.
-
-Happy coding! ⌨️ 🖥 📊 🎨 ✨
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
