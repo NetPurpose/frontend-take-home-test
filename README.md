@@ -116,7 +116,7 @@ Mainly we are interested in the `holding` table:
 ### Start the app
 
 ```
-# in the backend directory
+# in the root directory
 docker-compose up -d
 
 # in the frontend directory
