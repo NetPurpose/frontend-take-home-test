@@ -48,7 +48,7 @@ So, you should end up with an app that:
 
 Plus whatever extensions you have time for!
 
-## Judging criteria
+## Judging criteria and submission guidelines
 
 We're going to look mostly at the structure and quality of your code, rather than how beautiful your solution looks. That being said, some appreciation of UX and interaction design principles are important.
 
@@ -58,6 +58,8 @@ We're also interested to hear your thoughts on, or see your implementation for, 
 - Componentisation and project organisation
 - Styling solutions
 - Testing strategy
+
+**Submit your solution as a zip file, via email to `dev-team@netpurpose.com`.**
 
 ## The boilerplate
 
